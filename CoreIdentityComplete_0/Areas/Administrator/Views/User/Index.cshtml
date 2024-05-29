@@ -1,0 +1,26 @@
+﻿@model List<AppUser>
+
+    <a asp-action="Create" asp-controller="User">Kullanıcı ekle</a>
+
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>Kullanıcı ismi</th>
+                <th>Email Adresi</th>
+                <th>Rolleri</th>
+                <th>Rol ata</th>
+            </tr>
+        </thead>
+
+        <tbody>
+        @foreach (AppUser item in Model)
+        {
+            <tr>
+                <td>@item.UserName</td>
+                <td>@item.Email</td>
+                <td><getUserRoles user-id="@item.Id"></getUserRoles></td>
+                <td><a asp-action="AssignRole" asp-route-id="@item.Id" class="btn btn-primary">Rol Ata</a></td>
+            </tr>
+        }
+    </tbody>
+    </table>
