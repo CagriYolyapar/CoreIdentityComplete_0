@@ -8,7 +8,7 @@ namespace CoreIdentityComplete_0.Models.ContextClasses
 {
     public class MyContext : IdentityDbContext<AppUser,AppRole,int,IdentityUserClaim<int>,AppUserRole,IdentityUserLogin<int>,IdentityRoleClaim<int>,IdentityUserToken<int>>
     {
-        public MyContext(DbContextOptions opt):base(opt)
+        public MyContext(DbContextOptions<MyContext> opt):base(opt)
         {
 
         }
